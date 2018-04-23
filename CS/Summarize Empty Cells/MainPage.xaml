@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="Summarize_Empty_Cells.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    >
+    <Grid>
+        <dxg:GridControl x:Name="grid" CustomSummary="grid_CustomSummary" GroupCount="1">
+            <dxg:GridControl.SortInfo>
+                <dxg:GridSortInfo FieldName="Text" />
+            </dxg:GridControl.SortInfo>
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn FieldName="Text" />
+                <dxg:GridColumn FieldName="Number" />
+            </dxg:GridControl.Columns>
+            <dxg:GridControl.View>
+                <dxg:TableView x:Name="view" AutoWidth="True" 
+                                    NavigationStyle="Cell" ShowTotalSummary="True"/>
+            </dxg:GridControl.View>
+            <dxg:GridControl.TotalSummary>
+                <dxg:GridSummaryItem FieldName="Number" SummaryType="Custom" 
+                                    DisplayFormat="Total empty cells count: {0}"/>
+            </dxg:GridControl.TotalSummary>
+            <dxg:GridControl.GroupSummary>
+                <dxg:GridSummaryItem FieldName="Number" SummaryType="Custom" 
+                                    DisplayFormat="Group empty cells count: {0}"/>
+            </dxg:GridControl.GroupSummary>
+        </dxg:GridControl>
+    </Grid>
+</UserControl>
